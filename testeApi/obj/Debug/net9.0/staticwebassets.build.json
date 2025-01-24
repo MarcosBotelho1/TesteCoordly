@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "DmLorskBOMDHlSL7sz0QyJJhirR8B5zlEj9pFoO4gT4=",
+  "Source": "testeApi",
+  "BasePath": "_content/testeApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
