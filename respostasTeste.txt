@@ -1,0 +1,57 @@
+Respostas
+
+Seção 1: SQL
+
+SELECT CustomerID, (outras colunas necessarias)
+FROM Orders
+WHERE OrderDate BETWEEN '2023-01-01' AND '2023-12-31'
+ORDER BY CustomerID;
+
+O INNER JOIN retorna unicamente as linhas que estão presentes em ambas as tabelas,
+ou seja, realiza a união somente dos dados que existem nas duas.
+LEFT JOIN apresenta todas as linhas da tabela à esquerda e, caso haja uma
+correspondência na tabela à direita, essas também são incluídas. Se não houver
+correspondência, os campos da tabela da direita são preenchidos com NULL.
+Já o CROSS JOIN gera uma combinação de todas as linhas de uma tabela com todas
+as linhas da outra, representando o produto cartesiano entre elas.
+
+Seção 2: Entity Framework
+
+Carregamento Sob Demanda: os dados relacionados são 
+carregados automaticamente na primeira vez que são acessados.
+Não é preciso realizar uma operação explícita para carregar esses dados, mas isso
+pode resultar em múltiplas consultas ao banco de dados.
+
+Carregamento Antecipado: os dados relacionados são carregados junto com a
+consulta principal, normalmente usando o método Include. Isso ajuda a evitar
+múltiplas consultas, mas, por outro lado, pode acabar trazendo informações
+desnecessárias, o que pode prejudicar a performance.
+
+Carregamento Explícito: o carregamento dos dados relacionados é 
+feito manualmente, usando métodos como Load ou LoadAsync, ou até mesmo 
+com consultas adicionais após a entidade principal ser carregada. Esse método 
+oferece mais controle sobre o que está sendo carregado, mas exige um pouco mais
+de cuidado.
+
+
+um sistema de e-commerce com um painel de administração que precisa exibir dados
+de produtos rapidamente. Esses dados são usados apenas para leitura e não 
+precisam ser atualizados ou modificados. Esse mesmo sistema possui centenas até
+milhares de produtos cadastrados e o administrador apenas precisa visualizar 
+essas informações de forma rápida, como o nome, preço, e descrição dos produtos.
+Aqui entra o uso do AsNoTracking, pois a operação de leitura está sendo feita 
+apenas para exibição e não há necessidade de rastrear mudanças ou preparar 
+objetos para futuras alterações.
+
+
+Seção 3: Arquitetura de Software
+
+
+Arquitetura Monolítica: O sistema é uma aplicação única, onde todos os componentes
+(banco de dados, lógica de negócios e interface) estão integrados. 
+Inicialmente simples, mas difícil de escalar e modificar à medida que cresce.
+
+Arquitetura de Microsserviços: O sistema é dividido em várias aplicações 
+independentes, cada uma com sua função específica. Isso permite escalar e 
+atualizar partes do sistema de forma independente, mas aumenta a complexidade na
+gestão e comunicação entre os serviços.
